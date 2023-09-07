@@ -137,7 +137,7 @@ const Contact = () => {
           id="block"
         >
           <h1 className="text-center font-bold text-2xl mb-2 text-grey">
-            Let's Connect
+            Lets Connect
           </h1>
           <ScrollToBottom className="mobile:h-[80%] md:h-[77%] overflow-y-auto overflow-x-hidden">
             {started ? (

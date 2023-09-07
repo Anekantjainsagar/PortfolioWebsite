@@ -50,7 +50,7 @@ const About = () => {
           </div>
           <div className="ml-2">
             <p className="mt-1">
-              Hi, I'm Anekant Jain a 3rd-year undergraduate Computer Science
+              Hi, I am Anekant Jain a 3rd-year undergraduate Computer Science
               Engineering student from S.A.T.I. Vidisha (M.P).{" "}
             </p>
             <p className="mt-1">
@@ -60,8 +60,8 @@ const About = () => {
             </p>
             <p className="mt-1">
               {" "}
-              I've participated in 4 Offline Web Development and Ai Hackathons
-              out of which in one hackathon I'm the winner and in one we're the
+              I have participated in 4 Offline Web Development and Ai Hackathons
+              out of which in one hackathon I am the winner and in one we are the
               part of top 10 teams.
             </p>
             <p className="mt-1">

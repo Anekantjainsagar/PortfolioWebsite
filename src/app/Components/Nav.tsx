@@ -112,9 +112,10 @@ const Nav = () => {
                 }}
                 className="cursor-pointer w-[25vw] mt-3 object-cover object-top"
               />
-              {routes.map((obj: any, i: Number) => {
+              {routes.map((obj: any, i: any) => {
                 return (
                   <li
+                    key={i}
                     onClick={(e) => {
                       e.preventDefault();
                       closeNav();
@@ -150,9 +151,10 @@ const Nav = () => {
             </ul>
           </div>
           <ul className="md:flex hidden items-center justify-between w-[50vw] text-[15px] md:flex-row mobile:flex-col">
-            {routes.map((obj: any) => {
+            {routes.map((obj: any, i: any) => {
               return (
                 <li
+                  key={i}
                   onClick={(e) => {
                     e.preventDefault();
                     router.push(obj.route);

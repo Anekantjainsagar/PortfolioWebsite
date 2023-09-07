@@ -110,8 +110,8 @@ const Block = ({ data }: any) => {
           experience.
         </p>
         <div className="flex items-center mt-1.5 flex-wrap mr-12">
-          {data?.skills?.map((e: any) => {
-            return <Tile title={e} />;
+          {data?.skills?.map((e: any, i: any) => {
+            return <Tile title={e} key={i} />;
           })}
         </div>
         <div className="flex justify-end -mb-6">
@@ -121,7 +121,7 @@ const Block = ({ data }: any) => {
                 className="bg-oceanGreen px-2 py-1.5 rounded-md mx-2 oceanHover"
                 onClick={(e) => {
                   e.preventDefault();
-                  data.github.map((e: any) => {
+                  data.github.map((e: any, i: any) => {
                     return window.open(e);
                   });
                 }}
