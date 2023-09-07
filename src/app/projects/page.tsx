@@ -5,6 +5,7 @@ import { AiFillGithub, AiOutlineLink } from "react-icons/ai";
 import projects from "@/app/json/projects";
 import { gsap } from "gsap";
 import { Power2 } from "gsap/all";
+import { MutableRefObject, LegacyRef } from "react";
 import Image from "next/image";
 
 const Project = () => {
@@ -31,8 +32,9 @@ const Project = () => {
     );
   }, []);
 
-  let ref = useRef([]);
-  let proHead = useRef();
+  let ref: MutableRefObject<HTMLDivElement[] | null> = useRef([]);
+  let proHead: MutableRefObject<HTMLDivElement | null> = useRef(null);
+
   useEffect(() => {
     gsap.fromTo(
       ref.current,
@@ -56,7 +58,7 @@ const Project = () => {
         <h1
           id="leftPro"
           className="md:mt-6 mobile:mt-14 mobile:text-3xl md:text-6xl font-bold text-oceanGreen"
-        > 
+        >
           Projects
         </h1>
         <Image
@@ -78,7 +80,7 @@ const Project = () => {
               <div
                 key={i}
                 ref={(element) => {
-                  ref.current[i] = element;
+                  ref.current![i] = element ?? ref.current![i];
                 }}
               >
                 <Block data={e} />

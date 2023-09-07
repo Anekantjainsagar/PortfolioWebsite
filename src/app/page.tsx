@@ -208,7 +208,7 @@ const Home = () => {
               </button>
             </div>
             <div className="ml-1">
-              <SocialMedia />
+              <SocialMedia color={"123"} />
             </div>
           </div>
         </div>

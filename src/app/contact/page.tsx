@@ -26,7 +26,7 @@ const Contact = () => {
       question: "Thank you for your responses!",
     },
   ];
-  let [answers, setAnswers] = useState([]);
+  let [answers, setAnswers] = useState<any[]>([]);
   let [response, setResponse] = useState("");
   let [questionIndex, setQuestionIndex] = useState(0);
   const [started, setStarted] = useState(false);
