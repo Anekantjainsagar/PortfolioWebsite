@@ -1,27 +1,131 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+body {
+  margin: 0;
+  /* font-family: 'Montserrat', sans-serif; */
+  /* font-family: 'Roboto', sans-serif; */
+  font-family: "Open Sans", sans-serif;
+  overflow-x: hidden;
+  /* font-family: 'Cedarville Cursive', cursive; */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+.hoverTransition {
+  transition: all 0.25s ease-in-out;
+}
+
+.btnHover {
+  transition: all 0.25s ease-in-out;
+}
+
+.btnHover:hover {
+  box-shadow: 1px 1px 10px #383838;
+}
+
+.oceanHover {
+  transition: all 0.5s ease-in-out;
+}
+
+.oceanHover:hover {
+  box-shadow: 1px 1px 15px #65cfc4;
+}
+
+.greyHover {
+  transition: all 0.5s ease-in-out;
+}
+
+.greyHover:hover {
+  box-shadow: 1px 1px 15px #383838;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background-color: #f5f5f5;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #6d6d6d;
+  border-radius: 10px;
+}
+
+::-moz-selection {
+  /* Code for Firefox */
+  color: white;
+  background: #65cfc4;
+}
+
+::selection {
+  color: white;
+  background: #65cfc4;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.inner {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  height: 5rem;
+}
+
+.wrapper {
+  position: absolute;
+  display: flex;
+}
+
+section {
+  display: flex;
+  animation: swipe var(--speed) linear infinite backwards;
+}
+
+@keyframes swipe {
+  0% {
+    transform: translate(0);
+  }
+
+  100% {
+    transform: translate(-100%);
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.stroke {
+  -webkit-text-fill-color: transparent;
+  color: #65cfc4;
+  -webkit-text-stroke-width: 2px;
+}
+
+/* for vertical text  */
+.vertical-text {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
 }
