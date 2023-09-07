@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { Power2, gsap } from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import experience from "../json/experience";
@@ -135,12 +135,16 @@ const ExperienceSection = () => {
     );
   }, []);
 
+  let ref = useRef<HTMLDivElement | null>(null);
+
   useEffect(() => {
-    window.scrollTo(0, 0);
+    if (ref.current) {
+      ref.current.scrollIntoView({ behavior: "smooth" });
+    }
   }, []);
 
   return (
-    <div className="pb-10">
+    <div className="pb-10" ref={ref}>
       <div className="flex items-center justify-between mobile:mx-[2vw] md:mx-[5vw] mt-20">
         <h1
           id="leftExp"

@@ -33,12 +33,15 @@ import { AiOutlineLinkedin } from "react-icons/ai";
 import { ScrollTrigger } from "gsap/all";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const Home = () => {
   const image = useRef(null);
   const referrelsImage = useRef(null);
   const referrelHead = useRef(null);
   const recommendation = useRef(null);
+
+  const router = useRouter();
 
   const [text] = useTypewriter({
     words: [
@@ -83,80 +86,82 @@ const Home = () => {
   }, []);
 
   useEffect(() => {
-    gsap.fromTo(
-      "#skillHead",
-      { x: -200, opacity: 0 },
-      {
-        x: 0,
-        opacity: 1,
-        scrollTrigger: {
-          trigger: "#skillHead",
-          scrub: true,
-          start: window.innerWidth < 550 ? "top 70%" : "top 90%",
-          end: window.innerWidth < 550 ? "top 40%" : "top 50%",
-        },
-      }
-    );
-    gsap.fromTo(
-      image.current,
-      { x: 200, opacity: 0 },
-      {
-        x: 0,
-        opacity: 1,
-        duration: 1,
-        scrollTrigger: {
-          trigger: "#skillHead",
-          scrub: true,
-          start: window.innerWidth < 550 ? "top 70%" : "top 90%",
-          end: window.innerWidth < 550 ? "top 40%" : "top 50%",
-        },
-      }
-    );
-    gsap.fromTo(
-      referrelsImage.current,
-      { x: -200, opacity: 0 },
-      {
-        x: 0,
-        opacity: 1,
-        duration: 1,
-        scrollTrigger: {
-          trigger: referrelsImage.current,
-          scrub: true,
-          start: window.innerWidth < 550 ? "top 90%" : "top 90%",
-          end: window.innerWidth < 550 ? "top 70%" : "top 30%",
-        },
-      }
-    );
-    gsap.fromTo(
-      referrelHead.current,
-      { x: 200, opacity: 0 },
-      {
-        x: 0,
-        opacity: 1,
-        duration: 1,
-        scrollTrigger: {
-          trigger: referrelsImage.current,
-          scrub: true,
-          start: window.innerWidth < 550 ? "top 100%" : "top 90%",
-          end: window.innerWidth < 550 ? "top 60%" : "top 30%",
-        },
-      }
-    );
-    gsap.fromTo(
-      recommendation.current,
-      { y: 200, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 1,
-        scrollTrigger: {
-          trigger: referrelsImage.current,
-          scrub: true,
-          start: window.innerWidth < 550 ? "top 60%" : "top 50%",
-          end: window.innerWidth < 550 ? "top 35%" : "top 10%",
-        },
-      }
-    );
+    if (typeof window !== "undefined") {
+      gsap.fromTo(
+        "#skillHead",
+        { x: -200, opacity: 0 },
+        {
+          x: 0,
+          opacity: 1,
+          scrollTrigger: {
+            trigger: "#skillHead",
+            scrub: true,
+            start: window.innerWidth < 550 ? "top 70%" : "top 90%",
+            end: window.innerWidth < 550 ? "top 40%" : "top 50%",
+          },
+        }
+      );
+      gsap.fromTo(
+        image.current,
+        { x: 200, opacity: 0 },
+        {
+          x: 0,
+          opacity: 1,
+          duration: 1,
+          scrollTrigger: {
+            trigger: "#skillHead",
+            scrub: true,
+            start: window.innerWidth < 550 ? "top 70%" : "top 90%",
+            end: window.innerWidth < 550 ? "top 40%" : "top 50%",
+          },
+        }
+      );
+      gsap.fromTo(
+        referrelsImage.current,
+        { x: -200, opacity: 0 },
+        {
+          x: 0,
+          opacity: 1,
+          duration: 1,
+          scrollTrigger: {
+            trigger: referrelsImage.current,
+            scrub: true,
+            start: window.innerWidth < 550 ? "top 90%" : "top 90%",
+            end: window.innerWidth < 550 ? "top 70%" : "top 30%",
+          },
+        }
+      );
+      gsap.fromTo(
+        referrelHead.current,
+        { x: 200, opacity: 0 },
+        {
+          x: 0,
+          opacity: 1,
+          duration: 1,
+          scrollTrigger: {
+            trigger: referrelsImage.current,
+            scrub: true,
+            start: window.innerWidth < 550 ? "top 100%" : "top 90%",
+            end: window.innerWidth < 550 ? "top 60%" : "top 30%",
+          },
+        }
+      );
+      gsap.fromTo(
+        recommendation.current,
+        { y: 200, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1,
+          scrollTrigger: {
+            trigger: referrelsImage.current,
+            scrub: true,
+            start: window.innerWidth < 550 ? "top 60%" : "top 50%",
+            end: window.innerWidth < 550 ? "top 35%" : "top 10%",
+          },
+        }
+      );
+    }
   }, []);
 
   return (
@@ -200,7 +205,7 @@ const Home = () => {
               <button
                 onClick={(e) => {
                   e.preventDefault();
-                  window.open("https://www.buymeacoffee.com/anekantjain");
+                  router.push("https://www.buymeacoffee.com/anekantjain");
                 }}
                 className="oceanHover text-lightWhite bg-oceanGreen px-4 py-1 my-3 rounded-md cursor-pointer"
               >
@@ -293,6 +298,7 @@ const Home = () => {
 };
 
 const Block = ({ data }: any) => {
+  const router = useRouter();
   return (
     <div className="mobile:px-[7vw] md:px-[3vw] mobile:pb-9 md:pb-6">
       <p className="text-center text-darkGrey text-lg">
@@ -306,7 +312,7 @@ const Block = ({ data }: any) => {
             className="flex items-center"
             onClick={(e) => {
               e.preventDefault();
-              window.open(data.url);
+              router.push(data.url);
             }}
           >
             <AiOutlineLinkedin size={20} />
@@ -328,21 +334,23 @@ type IconStruct = {
 
 const Icon = ({ source, title }: IconStruct) => {
   useEffect(() => {
-    gsap.fromTo(
-      "#div",
-      { y: 200, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 1,
-        scrollTrigger: {
-          trigger: "#skillHead",
-          scrub: true,
-          start: window.innerWidth < 550 ? "top 55%" : "top 70%",
-          end: window.innerWidth < 550 ? "top 30%" : "top 30%",
-        },
-      }
-    );
+    if (typeof window !== "undefined") {
+      gsap.fromTo(
+        "#div",
+        { y: 200, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1,
+          scrollTrigger: {
+            trigger: "#skillHead",
+            scrub: true,
+            start: window.innerWidth < 550 ? "top 55%" : "top 70%",
+            end: window.innerWidth < 550 ? "top 30%" : "top 30%",
+          },
+        }
+      );
+    }
   }, []);
 
   return (

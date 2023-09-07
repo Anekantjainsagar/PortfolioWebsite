@@ -4,8 +4,10 @@ import { Power2, gsap } from "gsap";
 import me from "../Data/IMG_20230101_140614_317.jpg";
 import SocialMedia from "../Components/SocialMedia";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 const About = () => {
+  const router = useRouter();
   useEffect(() => {
     gsap.fromTo(
       "#leftAbout",
@@ -61,8 +63,8 @@ const About = () => {
             <p className="mt-1">
               {" "}
               I have participated in 4 Offline Web Development and Ai Hackathons
-              out of which in one hackathon I am the winner and in one we are the
-              part of top 10 teams.
+              out of which in one hackathon I am the winner and in one we are
+              the part of top 10 teams.
             </p>
             <p className="mt-1">
               {" "}
@@ -71,7 +73,7 @@ const About = () => {
                 className="underline block cursor-pointer"
                 onClick={(e) => {
                   e.preventDefault();
-                  window.open("mailto:anekantjainsagar@gmail.com");
+                  router.push("mailto:anekantjainsagar@gmail.com");
                 }}
               >
                 anekantjainsagar@gmail.com

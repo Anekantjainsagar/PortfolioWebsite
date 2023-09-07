@@ -141,7 +141,7 @@ const Nav = () => {
               <button
                 onClick={(e) => {
                   e.preventDefault();
-                  window.open("https://www.buymeacoffee.com/anekantjain");
+                  router.push("https://www.buymeacoffee.com/anekantjain");
                   closeNav();
                 }}
                 className="btnHover text-lightWhite bg-grey px-4 py-1 rounded-md cursor-pointer"
@@ -169,7 +169,7 @@ const Nav = () => {
             <button
               onClick={(e) => {
                 e.preventDefault();
-                window.open(
+                router.push(
                   "https://drive.google.com/file/d/1QpvgNmPyfebiFRq-EbSZL77UrKyL1xBz/view?usp=sharings"
                 );
               }}
@@ -181,7 +181,7 @@ const Nav = () => {
             <button
               onClick={(e) => {
                 e.preventDefault();
-                window.open("https://www.buymeacoffee.com/anekantjain");
+                router.push("https://www.buymeacoffee.com/anekantjain");
               }}
               className="btnHover text-lightWhite bg-grey px-4 py-1 rounded-md cursor-pointer"
             >

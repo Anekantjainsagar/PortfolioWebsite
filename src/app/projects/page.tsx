@@ -7,6 +7,7 @@ import { gsap } from "gsap";
 import { Power2 } from "gsap/all";
 import { MutableRefObject, LegacyRef } from "react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 const Project = () => {
   useEffect(() => {
@@ -48,12 +49,16 @@ const Project = () => {
     );
   }, []);
 
+  let topRef = useRef<HTMLDivElement | null>(null);
+
   useEffect(() => {
-    window.scrollTo(0, 0);
+    if (topRef.current) {
+      topRef.current.scrollIntoView({ behavior: "smooth" });
+    }
   }, []);
 
   return (
-    <div className="mobile:mx-[2vw] md:mx-[5vw] mt-20 mb-10">
+    <div ref={topRef} className="mobile:mx-[2vw] md:mx-[5vw] mt-20 mb-10">
       <div className="flex items-center justify-between">
         <h1
           id="leftPro"
@@ -93,6 +98,7 @@ const Project = () => {
 };
 
 const Block = ({ data }: any) => {
+  const router = useRouter();
   return (
     <div className="border md:mb-4 mobile:mb-10 rounded-md border-oceanGreen bg-white text-grey cursor-pointer oceanHover mb-4 mobile:w-[100%] md:w-[95%] mx-auto">
       <Image
@@ -122,7 +128,7 @@ const Block = ({ data }: any) => {
                 onClick={(e) => {
                   e.preventDefault();
                   data.github.map((e: any, i: any) => {
-                    return window.open(e);
+                    return router.push(e);
                   });
                 }}
               >
@@ -133,7 +139,7 @@ const Block = ({ data }: any) => {
               <button
                 onClick={(e) => {
                   e.preventDefault();
-                  window.open(data?.url);
+                  router.push(data?.url);
                 }}
                 className="bg-oceanGreen px-2 py-1.5 rounded-md mx-2 oceanHover"
               >
