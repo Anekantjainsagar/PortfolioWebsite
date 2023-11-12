@@ -1,10 +1,11 @@
+"use client";
+import { useState, useEffect } from "react";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { Providers } from "./providor";
-
 import Nav from "./Components/Nav";
 import Footer from "./Components/Footer";
+import Loader from "./Components/Loader";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,13 +19,25 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const [showLoader, setShowLoader] = useState(true);
+
+  useEffect(() => {
+    if (document.readyState === "complete") {
+      setShowLoader(false);
+    }
+    window.addEventListener("load", () => {
+      setShowLoader(false);
+    });
+  });
+
   return (
     <html lang="en" className="bg-lightWhite">
-      <Nav />
-      <Providers>
+      {showLoader ? <Loader /> : <></>}
+      <>
+        <Nav />
         <body className={inter.className}>{children}</body>
-      </Providers>
-      <Footer />
+        <Footer />
+      </>
     </html>
   );
 }
