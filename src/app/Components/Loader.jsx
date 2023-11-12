@@ -1,13 +1,22 @@
 "use client";
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import gsap, { Power4 } from "gsap";
 
-type Props = {};
+const Loader = () => {
+  const [showLoader, setShowLoader] = useState(true);
 
-const Loader = ({}: Props) => {
+  useEffect(() => {
+    if (document.readyState === "complete") {
+      setShowLoader(false);
+    }
+    window.addEventListener("load", () => {
+      setShowLoader(false);
+    });
+  },[]);
+
   let logo_1 = useRef(null);
-
   const timeline = gsap.timeline();
+
   useEffect(() => {
     timeline
       .to(logo_1.current, {
@@ -25,7 +34,8 @@ const Loader = ({}: Props) => {
         "-=0.4"
       );
   });
-  return (
+
+  return showLoader ? (
     <>
       <div className="flex justify-center items-center h-screen w-full bg-lightWhite overflow-hidden z-50 top-0 left-0 absolute">
         <video autoPlay loop muted>
@@ -33,7 +43,7 @@ const Loader = ({}: Props) => {
         </video>
       </div>
     </>
-  );
+  ) : null;
 };
 
 export default Loader;
