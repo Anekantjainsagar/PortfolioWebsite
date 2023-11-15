@@ -135,16 +135,16 @@ const ExperienceSection = () => {
     );
   }, []);
 
-  let ref = useRef<HTMLDivElement | null>(null);
+  let ref = useRef();
 
   useEffect(() => {
-    if (ref.current) {
-      ref.current.scrollIntoView({ behavior: "smooth" });
+    if (typeof window != "undefined") {
+      window.scrollTo(0, 0);
     }
   }, []);
 
   return (
-    <div className="pb-10" ref={ref}>
+    <div className="pb-[10vw]" ref={ref}>
       <div className="flex items-center justify-between mobile:mx-[2vw] md:mx-[5vw] mt-20">
         <h1
           id="leftExp"
@@ -160,7 +160,7 @@ const ExperienceSection = () => {
         />
       </div>
       <div className="max-w-xl mx-auto md:mt-0 mobile:mt-20"></div>
-      <div className="flex flex-col justify-center ">
+      <div className="flex flex-col justify-center mt-5">
         <div className="w-full px-4 mx-auto lg:max-w-5xl ">
           <div className="relative">
             <div
@@ -179,7 +179,7 @@ const ExperienceSection = () => {
   );
 };
 
-const Card = ({ e }: any) => {
+const Card = ({ e }) => {
   return (
     <div id={e?.class}>
       <div className="flex flex-col items-center">

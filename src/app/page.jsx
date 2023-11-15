@@ -2,7 +2,6 @@
 import React, { useEffect, useRef } from "react";
 
 import img from "@/app/Data/IMG_20230511_225820_Bokeh.png";
-import skills from "@/app/Data/My project.png";
 import referrels from "@/app/Data/referrels.png";
 import recommandations from "@/app/json/recommandations";
 import { Carousel } from "react-responsive-carousel";
@@ -27,6 +26,11 @@ import git from "@/app/Data/icons/git.png";
 import github from "@/app/Data/icons/github.png";
 import c from "@/app/Data/icons/letter-c.png";
 import cplus from "@/app/Data/icons/c++.png";
+import dsa from "@/app/Data/icons/dsa.png";
+import aws from "@/app/Data/icons/aws.png";
+import canva from "@/app/Data/icons/canva.jpeg";
+import react from "@/app/Data/icons/react.png";
+import next from "@/app/Data/icons/next.png";
 import npm from "@/app/Data/icons/npm.png";
 import python from "@/app/Data/icons/python.png";
 import { AiOutlineLinkedin } from "react-icons/ai";
@@ -46,10 +50,10 @@ const Home = () => {
   const [text] = useTypewriter({
     words: [
       "MERN Stack Web Developer",
+      "Over 1 year of Experience",
+      "Experienced 6+ Startups",
       "React Native App Developer",
       "Stand Alone Hackathon Winner",
-      "Over 1 year of Experience",
-      "Experienced 4+ Startups",
     ],
     loop: 0,
   });
@@ -166,11 +170,11 @@ const Home = () => {
 
   return (
     <div id="mainDiv">
-      <div className="md:mt-20 mobile:mt-14 flex md:flex-row mobile:flex-col justify-center w-[100%] items-center md:px-[5vw] mobile:px-[1.5vw]">
+      <div className="md:mt-20 mobile:mt-14 flex h-fit md:flex-row mobile:flex-col justify-center w-[100%] items-center md:px-[5vw] mobile:px-[1.5vw]">
         <div className="md:w-[32%] mobile:w-[85%] h-[100%] overflow-hidden relative">
           <Image src={img} id="img" className="w-full h-full" alt="" />
         </div>
-        <div className="md:ml-10 mobile:ml-0 text-grey md:w-[65%] mobile:w-[100%] md:h-[65vh] mobile:h-[60vh] overflow-hidden flex items-center">
+        <div className="md:ml-10 mobile:ml-0 md:mt-0 mt-[3vw] text-grey md:w-[65%] mobile:w-[100%] md:h-[65vh] max-[400px]:h-[65vh] h-[45vh] overflow-hidden flex items-center">
           <div
             className="absolute mobile:flex mobile:flex-col mobile:justify-center mobile:items-center md:block"
             id="content"
@@ -188,8 +192,8 @@ const Home = () => {
               Adept MERN Stack developer with a demonstrated history of success.
               Skilled in web and
               <br /> mobile application development, hackathons, and startups.
-              Currently a Junior
-              <br /> Executive at OLL.co...
+              Currently working
+              <br /> as a Intern at Consciousleap & Freelancer at Trubuddies...
             </p>
             <div className="flex items-center ml-1">
               <Link
@@ -228,7 +232,11 @@ const Home = () => {
           </h1>
           <Image
             ref={image}
-            src={skills}
+            src={
+              "https://res.cloudinary.com/dpbsogbtr/image/upload/v1699981184/un4nytyu880zi4jexeun.png"
+            }
+            width={100}
+            height={100}
             alt="Skills"
             className="md:w-[20%] mobile:w-[40%] md:-mb-12 mobile:-mb-6"
           />
@@ -236,7 +244,8 @@ const Home = () => {
         <div className="flex flex-col justify-center">
           <div
             id="socialIcons"
-            className="grid mb-10 md:grid-cols-8 justify-items-center border mobile:grid-cols-4 rounded-xl bg-white overflow-hidden px-[2vw] mobile:py-[4vw] md:py-[1.5vw]"
+            // className="grid mb-10 md:grid-cols-8 justify-items-center border mobile:grid-cols-4 rounded-xl bg-white overflow-hidden px-[2vw] mobile:py-[4vw] md:py-[1.5vw]"
+            className="mb-10 flex items-center justify-center flex-wrap rounded-xl bg-white px-[2vw] border py-[2vw] md:py-[4vw]"
           >
             <Icon source={html} title={"Html"} />
             <Icon source={css} title={"CSS"} />
@@ -244,6 +253,8 @@ const Home = () => {
             <Icon source={tailwind} title={"Tailwind css"} />
             <Icon source={javascript} title={"JavaScript"} />
             <Icon source={typescript} title={"TypeScript"} />
+            <Icon source={react} title={"React.js"} />
+            <Icon source={next} title={"Next.js"} />
             <Icon source={npm} title={"NPM"} />
             <Icon source={nodejs} title={"Node.js"} />
             <Icon source={expressjs} title={"Express.js"} />
@@ -251,9 +262,12 @@ const Home = () => {
             <Icon source={mongoose} title={"Mongoose"} />
             <Icon source={git} title={"Git"} />
             <Icon source={github} title={"Github"} />
+            <Icon source={aws} title={"Amazon Web Services"} />
             <Icon source={c} title={"C"} />
-            <Icon source={python} title={"Python"} />
             <Icon source={cplus} title={"C++"} />
+            <Icon source={dsa} title={"DSA"} />
+            <Icon source={python} title={"Python"} />
+            <Icon source={canva} title={"Canva"} />
           </div>
         </div>
       </div>
@@ -286,7 +300,7 @@ const Home = () => {
               swipeable={true}
               emulateTouch={true}
             >
-              {recommandations.map((card: any, index: Number) => {
+              {recommandations.map((card, index) => {
                 return <Block data={card} key={index} />;
               })}
             </Carousel>
@@ -297,7 +311,7 @@ const Home = () => {
   );
 };
 
-const Block = ({ data }: any) => {
+const Block = ({ data }) => {
   const router = useRouter();
   return (
     <div className="mobile:px-[7vw] md:px-[3vw] mobile:pb-9 md:pb-6">
@@ -327,12 +341,7 @@ const Block = ({ data }: any) => {
   );
 };
 
-type IconStruct = {
-  source: any;
-  title: String;
-};
-
-const Icon = ({ source, title }: IconStruct) => {
+const Icon = ({ source, title }) => {
   useEffect(() => {
     if (typeof window !== "undefined") {
       gsap.fromTo(
@@ -355,11 +364,11 @@ const Icon = ({ source, title }: IconStruct) => {
 
   return (
     <div
-      // title={title}
+      title={title}
       id="div"
-      className="relative m-auto mobile:w-[13vw] mobile:h-[13vw] md:w-[5.5vw] md:h-[5.5vw] object-cover object-center flex justify-center items-center md:my-6 mobile:my-3 transition-all hover:pb-12"
+      className="relative m-auto w-[21vw] mobile:h-[12vw] md:w-[9vw] md:h-[5vw] object-cover object-center flex justify-center items-center md:my-6 mobile:my-3 transition-all hover:pb-12"
     >
-      <Image className="absolute" src={source} alt={"title"} />
+      <Image className="absolute w-6/12" src={source} alt={"title"} />
     </div>
   );
 };

@@ -8,6 +8,7 @@ import { Power2 } from "gsap/all";
 import { MutableRefObject, LegacyRef } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 const Project = () => {
   useEffect(() => {
@@ -52,8 +53,8 @@ const Project = () => {
   let topRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    if (topRef.current) {
-      topRef.current.scrollIntoView({ behavior: "smooth" });
+    if (typeof window != "undefined") {
+      window.scrollTo(0, 0);
     }
   }, []);
 
@@ -136,15 +137,11 @@ const Block = ({ data }: any) => {
               </button>
             ) : null}
             {data?.url ? (
-              <button
-                onClick={(e) => {
-                  e.preventDefault();
-                  router.push(data?.url);
-                }}
-                className="bg-oceanGreen px-2 py-1.5 rounded-md mx-2 oceanHover"
-              >
-                <AiOutlineLink size={30} color="white" />
-              </button>
+              <Link href={data?.url} target="__blank">
+                <button className="bg-oceanGreen px-2 py-1.5 rounded-md mx-2 oceanHover">
+                  <AiOutlineLink size={30} color="white" />
+                </button>
+              </Link>
             ) : null}
           </div>
         </div>

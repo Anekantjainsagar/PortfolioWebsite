@@ -86,6 +86,14 @@ const recommandations = [
     message:
       "Anekant was my junior when I first met him, seeing his dedication towards coding and technology was always amazing. I saw him learning new things and eventually we worked on multiple projects as well. We both completed few freelance projects and completed our club activities as well. As far as I have seen his consistency, I'd say having him on your team is a next level advantage for you. I wish all the very best to anekant in the near future.",
   },
+  {
+    key: 12,
+    name: "Anamika Jain",
+    url: "https://www.linkedin.com/in/anamika-jain1/",
+    position: "SWE intern'23 Microsoft",
+    message:
+      "Anekant is really a hardworking person with excellent tech skills. He is really passionate about technology and new tech stack and always open to work and explore different fields. Also have good communication skills with team management skills.",
+  },
 ];
 
 export default recommandations;
