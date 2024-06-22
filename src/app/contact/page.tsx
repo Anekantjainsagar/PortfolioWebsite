@@ -1,8 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import img from "@/app/Data/Contact-Head.png";
 import { Power2, gsap } from "gsap";
-import contact from "@/app/Data/Contact.png";
 import { AiOutlineReload, AiOutlineSend } from "react-icons/ai";
 import ScrollToBottom from "react-scroll-to-bottom";
 import { ThreeDots } from "react-loader-spinner";
@@ -110,36 +108,40 @@ const Contact = () => {
   };
 
   return (
-    <div className="mobile:mx-[2vw] md:mx-[5vw] mb-10">
+    <div className="mx-[2vw] md:mx-[5vw] mb-10">
       <div className="flex items-center justify-between mt-20">
         <h1
           id="leftContact"
-          className="md:mt-6 mobile:mt-14 mobile:text-3xl md:text-5xl font-bold text-oceanGreen"
+          className="md:mt-6 mt-14 text-3xl md:text-5xl font-bold text-oceanGreen"
         >
           Contact
         </h1>
         <Image
           id="rightContact"
-          src={img}
+          src={"/Data/Contact-Head.png"}
           alt={"img"}
-          className="mix-blend-multiply md:w-[22%] mobile:w-[50%]"
+          width={1000}
+          height={1000}
+          className="mix-blend-multiply md:w-[22%] w-[50%]"
         />
       </div>
-      <div className="mx-[2vw] flex md:flex-row mobile:flex-col justify-evenly mobile:h-fit md:h-[55vh]">
+      <div className="mx-[2vw] flex md:flex-row flex-col justify-evenly h-fit md:h-[55vh]">
         <Image
-          src={contact}
+          src={"/Data/Contact.png"}
+          width={1000}
+          height={1000}
           alt={"contact"}
-          className="mobile:w-[80%] mobile:mx-auto md:w-[55%]"
+          className="w-[80%] mx-auto md:w-[55%]"
           id="img"
         />
         <div
-          className="md:w-[28%] mobile:h-[60vh] md:h-full mobile:w-full mobile:mt-4 md:mt-0 shadow-lg shadow-gray-400 rounded-2xl p-2 border md:border-gray-300 mobile:border-gray-300"
+          className="md:w-[28%] h-[60vh] md:h-full w-full mt-4 md:mt-0 shadow-lg shadow-gray-400 rounded-2xl p-2 border md:border-gray-300 border-gray-300"
           id="block"
         >
           <h1 className="text-center font-bold text-2xl mb-2 text-grey">
-            Lets Connect
+            Let&apos;s Connect
           </h1>
-          <ScrollToBottom className="mobile:h-[80%] md:h-[77%] overflow-y-auto overflow-x-hidden">
+          <ScrollToBottom className="h-[79%] md:h-[81%] overflow-y-auto overflow-x-hidden">
             {started ? (
               <>
                 {answers?.map((e, i) => {
@@ -167,96 +169,98 @@ const Contact = () => {
               </>
             ) : null}
           </ScrollToBottom>
-          {questionIndex === message?.length - 1 ? (
-            <div className="flex items-center justify-center mt-2">
-              <button
-                onClick={(e) => {
-                  e.preventDefault();
-                  setQuestionIndex(0);
-                  setAnswers([]);
-                  setStarted(false);
-                }}
-                className="flex items-center border border-transparent rounded-lg px-3 justify-center bg-oceanGreen text-white hover:text-grey cursor-pointer hover:bg-transparent hover:border-grey hover:border-spacing-0"
-              >
-                <AiOutlineReload className="mr-1" />
-                Restart Chat
-              </button>
-            </div>
-          ) : !started ? (
-            <div className="flex items-center justify-center mt-2">
-              <button
-                onClick={(e) => {
-                  e.preventDefault();
-                  setStarted(true);
-                }}
-                className="flex items-center border border-transparent rounded-lg px-3 justify-center bg-oceanGreen text-white hover:text-grey cursor-pointer hover:bg-transparent hover:border-grey hover:border-spacing-0"
-              >
-                Start Chat
-              </button>
-            </div>
-          ) : (
-            <div
-              className="w-full flex justify-between mt-1.5"
-              onKeyDown={(e) => {
-                if (e?.code === "Enter") {
-                  handleSubmit();
-                }
-              }}
-            >
-              <input
-                type={
-                  questionIndex === 2
-                    ? "number"
-                    : questionIndex === 1
-                    ? "email"
-                    : "text"
-                }
-                placeholder={
-                  questionIndex === 2
-                    ? "Enter Mobile No."
-                    : questionIndex === 1
-                    ? "Enter Email Address"
-                    : "Enter Text"
-                }
-                disabled={
-                  questionIndex === message?.length - 1 ||
-                  questionIndex + 1 > message?.length
-                }
-                value={response}
+          <div className="">
+            {questionIndex === message?.length - 1 ? (
+              <div className="flex items-center justify-center mt-2">
+                <button
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setQuestionIndex(0);
+                    setAnswers([]);
+                    setStarted(false);
+                  }}
+                  className="flex items-center border border-transparent rounded-lg px-3 justify-center bg-oceanGreen text-white hover:text-grey cursor-pointer hover:bg-transparent hover:border-grey hover:border-spacing-0"
+                >
+                  <AiOutlineReload className="mr-1" />
+                  Restart Chat
+                </button>
+              </div>
+            ) : !started ? (
+              <div className="flex items-center justify-center mt-2">
+                <button
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setStarted(true);
+                  }}
+                  className="flex items-center border border-transparent transition-all rounded-lg w-full justify-center py-1 bg-oceanGreen text-white hover:text-grey cursor-pointer hover:bg-transparent hover:border-grey hover:border-spacing-0"
+                >
+                  Start Chat
+                </button>
+              </div>
+            ) : (
+              <div
+                className="w-full flex justify-between mt-1.5"
                 onKeyDown={(e) => {
                   if (e?.code === "Enter") {
                     handleSubmit();
                   }
                 }}
-                autoFocus={true}
-                className="w-[72%] rounded-lg outline-none bg-transparent border px-3 py-0.5"
-                onChange={(e) => {
-                  setResponse(e.target.value);
-                }}
-              />
-              <button
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleSubmit();
-                }}
-                disabled={
-                  questionIndex === message?.length - 1 ||
-                  questionIndex + 1 > message?.length
-                }
-                className="flex items-center border border-transparent rounded-lg w-[25%] justify-center bg-oceanGreen text-white hover:text-grey cursor-pointer hover:bg-transparent hover:border-grey hover:border-spacing-0"
               >
-                <AiOutlineSend className="mr-1" />
-                Send
-              </button>
-            </div>
-          )}
+                <input
+                  type={
+                    questionIndex === 2
+                      ? "number"
+                      : questionIndex === 1
+                      ? "email"
+                      : "text"
+                  }
+                  placeholder={
+                    questionIndex === 2
+                      ? "Enter Mobile No."
+                      : questionIndex === 1
+                      ? "Enter Email Address"
+                      : "Enter Text"
+                  }
+                  disabled={
+                    questionIndex === message?.length - 1 ||
+                    questionIndex + 1 > message?.length
+                  }
+                  value={response}
+                  onKeyDown={(e) => {
+                    if (e?.code === "Enter") {
+                      handleSubmit();
+                    }
+                  }}
+                  autoFocus={true}
+                  className="w-[72%] rounded-lg outline-none bg-transparent border px-3 py-0.5"
+                  onChange={(e) => {
+                    setResponse(e.target.value);
+                  }}
+                />
+                <button
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleSubmit();
+                  }}
+                  disabled={
+                    questionIndex === message?.length - 1 ||
+                    questionIndex + 1 > message?.length
+                  }
+                  className="flex items-center border border-transparent rounded-lg w-[25%] justify-center bg-oceanGreen text-white hover:text-grey cursor-pointer hover:bg-transparent hover:border-grey hover:border-spacing-0"
+                >
+                  <AiOutlineSend className="mr-1" />
+                  Send
+                </button>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </div>
   );
 };
 
-const Chat = ({ mine, text, error, loader }: any) => {
+const Chat = ({ mine, text, error, loader }) => {
   return !loader ? (
     <div
       id="chat"

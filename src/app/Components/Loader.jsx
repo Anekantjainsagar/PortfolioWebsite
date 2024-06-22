@@ -12,7 +12,7 @@ const Loader = () => {
     window.addEventListener("load", () => {
       setShowLoader(false);
     });
-  },[]);
+  }, []);
 
   let logo_1 = useRef(null);
   const timeline = gsap.timeline();

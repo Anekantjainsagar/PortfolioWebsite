@@ -1,7 +1,6 @@
 "use client";
 import React, { useEffect } from "react";
 import { Power2, gsap } from "gsap";
-import me from "../Data/IMG_20230101_140614_317.jpg";
 import SocialMedia from "../Components/SocialMedia";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -32,39 +31,47 @@ const About = () => {
   }, []);
 
   return (
-    <div className="mobile:mx-[2vw] md:mx-[6vw] mb-10">
-      <div className="mx-[2vw] mobile:mt-20 md:mt-24 flex md:flex-row mobile:flex-col justify-center">
+    <div className="mx-[2vw] md:mx-[6vw] mb-10">
+      <div className="mx-[2vw] mt-20 md:mt-24 flex md:flex-row flex-col justify-center">
         <Image
           id="leftAbout"
-          src={me}
+          src={"/Data/IMG_20230101_140614_317.jpg"}
+          width={1000}
+          height={1000}
           alt={"me"}
           className="md:w-[25vw] object-cover object-center rounded-lg"
         />
         <div
           id="rightAbout"
-          className="mobile:w-full md:w-[35%] text-grey md:ml-7 md:mt-0 mobile:mt-1 mobile:px-1 md:px-0"
+          className="w-full md:w-[35%] text-grey md:ml-7 md:mt-0 mt-1 px-1 md:px-0"
         >
           <h1 className="text-4xl font-bold">Anekant Jain</h1>
           <div className="mt-1 flex items-center flex-wrap">
-            {["Developer", "Hackathon Winner"].map((e) => {
+            {["Developer", "ML Engineer", "Hackathon Winner"].map((e) => {
               return <Title text={e} key={e} />;
             })}
           </div>
           <div className="ml-2">
             <p className="mt-1">
-              Hi, I am Anekant Jain a 3rd-year undergraduate Computer Science
+              Hi, I am Anekant Jain a Final-year undergraduate Computer Science
               Engineering student from S.A.T.I. Vidisha (M.P).{" "}
             </p>
             <p className="mt-1">
               {" "}
               I have good hands-on experience in Full Stack Web Development
-              technologies such as React.js, Node.js, Express.js, and MongoDB.
+              technologies such as{" "}
+              <b>
+                Next.js, React.js, Node.js, Express.js, MongoDb (MERN Stack) &
+                Machine Learning technologies such as Numpy, Pandas, Matplotlib
+                and it's various algorithms.
+              </b>
             </p>
             <p className="mt-1">
               {" "}
-              I have participated in 4 Offline Web Development and Ai Hackathons
-              out of which in one hackathon I am the winner and in one we are
-              the part of top 10 teams.
+              I have participated in 10+ Offline Web Development and Ai
+              Hackathons out of which in{" "}
+              <b>Kriyeta 2023 & SIH 2023 I became the winner</b> and in others
+              we are the part of top 10 teams.
             </p>
             <p className="mt-1">
               {" "}
@@ -80,7 +87,7 @@ const About = () => {
               </span>
             </p>
           </div>
-          <div className="mt-3 md:block mobile:hidden">
+          <div className="mt-3 md:block hidden">
             <SocialMedia color="grey" />
           </div>
         </div>

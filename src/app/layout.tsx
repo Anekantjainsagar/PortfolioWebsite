@@ -1,12 +1,11 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-
+import { Inter, Montserrat } from "next/font/google";
+import Loader from "./Components/Loader";
 import Nav from "./Components/Nav";
 import Footer from "./Components/Footer";
-import Loader from "./Components/Loader";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Montserrat({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Anekant Jain",

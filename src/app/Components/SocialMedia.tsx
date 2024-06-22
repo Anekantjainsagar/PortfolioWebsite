@@ -23,11 +23,11 @@ const SocialMedia = ({ color }: { color: String }) => {
               : 45
             : 0
         }
-        onClick={(e: any) => {
+        onClick={(e) => {
           e.preventDefault();
-          router.push("https://www.linkedin.com/in/anekantjainsagar");
+          window.open("https://www.linkedin.com/in/anekantjainsagar");
         }}
-        className={`md:mr-4 mobile:mr-3 bg-white md:p-2 mobile:p-1.5 rounded-full cursor-pointer ${
+        className={`md:mr-4 mr-3 bg-white md:p-2 p-1.5 rounded-full cursor-pointer ${
           color === "grey" ? "greyHover" : "oceanHover"
         }`}
         color={color === "grey" ? "#383838" : "#65cfc4"}
@@ -40,11 +40,11 @@ const SocialMedia = ({ color }: { color: String }) => {
               : 45
             : 0
         }
-        onClick={(e: any) => {
+        onClick={(e) => {
           e.preventDefault();
-          router.push("https://github.com/Anekantjainsagar");
+          window.open("https://github.com/Anekantjainsagar");
         }}
-        className={`md:mr-4 mobile:mr-3 bg-white md:p-2 mobile:p-1.5 rounded-full cursor-pointer ${
+        className={`md:mr-4 mr-3 bg-white md:p-2 p-1.5 rounded-full cursor-pointer ${
           color === "grey" ? "greyHover" : "oceanHover"
         }`}
         color={color === "grey" ? "#383838" : "#65cfc4"}
@@ -57,13 +57,13 @@ const SocialMedia = ({ color }: { color: String }) => {
               : 45
             : 0
         }
-        onClick={(e: any) => {
+        onClick={(e) => {
           e.preventDefault();
-          router.push(
+          window.open(
             "https://instagram.com/ig.anekant?igshid=NTc4MTIwNjQ2YQ=="
           );
         }}
-        className={`md:mr-4 mobile:mr-3 bg-white md:p-2 mobile:p-1.5 rounded-full cursor-pointer ${
+        className={`md:mr-4 mr-3 bg-white md:p-2 p-1.5 rounded-full cursor-pointer ${
           color === "grey" ? "greyHover" : "oceanHover"
         }`}
         color={color === "grey" ? "#383838" : "#65cfc4"}
@@ -76,11 +76,11 @@ const SocialMedia = ({ color }: { color: String }) => {
               : 45
             : 0
         }
-        onClick={(e: any) => {
+        onClick={(e) => {
           e.preventDefault();
-          router.push("https://youtube.com/@ajlearning8494");
+          window.open("https://youtube.com/@ajlearning8494");
         }}
-        className={`md:mr-4 mobile:mr-3 bg-white md:p-2 mobile:p-1.5 rounded-full cursor-pointer ${
+        className={`md:mr-4 mr-3 bg-white md:p-2 p-1.5 rounded-full cursor-pointer ${
           color === "grey" ? "greyHover" : "oceanHover"
         }`}
         color={color === "grey" ? "#383838" : "#65cfc4"}
@@ -93,11 +93,11 @@ const SocialMedia = ({ color }: { color: String }) => {
               : 45
             : 0
         }
-        onClick={(e: any) => {
+        onClick={(e) => {
           e.preventDefault();
-          router.push("https://twitter.com/Anekant28446852");
+          window.open("https://twitter.com/Anekant28446852");
         }}
-        className={`md:mr-4 mobile:mr-3 bg-white md:p-2 mobile:p-1.5 rounded-full cursor-pointer ${
+        className={`md:mr-4 mr-3 bg-white md:p-2 p-1.5 rounded-full cursor-pointer ${
           color === "grey" ? "greyHover" : "oceanHover"
         }`}
         color={color === "grey" ? "#383838" : "#65cfc4"}
@@ -110,11 +110,11 @@ const SocialMedia = ({ color }: { color: String }) => {
               : 45
             : 0
         }
-        onClick={(e: any) => {
+        onClick={(e) => {
           e.preventDefault();
-          router.push("mailto:anekantjainsagar@gmail.com");
+          window.open("mailto:anekantjainsagar@gmail.com");
         }}
-        className={`md:mr-4 mobile:mr-3 bg-white md:p-2 mobile:p-1.5 rounded-full cursor-pointer ${
+        className={`md:mr-4 mr-3 bg-white md:p-2 p-1.5 rounded-full cursor-pointer ${
           color === "grey" ? "greyHover" : "oceanHover"
         }`}
         color={color === "grey" ? "#383838" : "#65cfc4"}
@@ -127,11 +127,11 @@ const SocialMedia = ({ color }: { color: String }) => {
               : 45
             : 0
         }
-        onClick={(e: any) => {
+        onClick={(e) => {
           e.preventDefault();
-          router.push("https://www.facebook.com/anekant.jain.338/");
+          window.open("https://www.facebook.com/anekant.jain.338/");
         }}
-        className={`md:mr-4 mobile:mr-3 bg-white md:p-2 mobile:p-1.5 rounded-full cursor-pointer ${
+        className={`md:mr-4 mr-3 bg-white md:p-2 p-1.5 rounded-full cursor-pointer ${
           color === "grey" ? "greyHover" : "oceanHover"
         }`}
         color={color === "grey" ? "#383838" : "#65cfc4"}

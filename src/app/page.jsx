@@ -1,8 +1,6 @@
 "use client";
 import React, { useEffect, useRef } from "react";
 
-import img from "@/app/Data/IMG_20230511_225820_Bokeh.png";
-import referrels from "@/app/Data/referrels.png";
 import recommandations from "@/app/json/recommandations";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
@@ -12,27 +10,6 @@ import { gsap, Power2 } from "gsap";
 import SocialMedia from "@/app/Components/SocialMedia";
 
 // Images
-import html from "@/app/Data/icons/html.png";
-import css from "@/app/Data/icons/css-3.png";
-import javascript from "@/app/Data/icons/js.png";
-import typescript from "@/app/Data/icons/typescript.png";
-import tailwind from "@/app/Data/icons/tailwind.png";
-import bootstrap from "@/app/Data/icons/bootstrap.png";
-import nodejs from "@/app/Data/icons/node-js-736399_1280.png";
-import expressjs from "@/app/Data/icons/Expressjs.png";
-import mongodb from "@/app/Data/icons/mongodb.png";
-import mongoose from "@/app/Data/icons/mongoose.png";
-import git from "@/app/Data/icons/git.png";
-import github from "@/app/Data/icons/github.png";
-import c from "@/app/Data/icons/letter-c.png";
-import cplus from "@/app/Data/icons/c++.png";
-import dsa from "@/app/Data/icons/dsa.png";
-import aws from "@/app/Data/icons/aws.png";
-import canva from "@/app/Data/icons/canva.jpeg";
-import react from "@/app/Data/icons/react.png";
-import next from "@/app/Data/icons/next.png";
-import npm from "@/app/Data/icons/npm.png";
-import python from "@/app/Data/icons/python.png";
 import { AiOutlineLinkedin } from "react-icons/ai";
 import { ScrollTrigger } from "gsap/all";
 import Image from "next/image";
@@ -45,15 +22,13 @@ const Home = () => {
   const referrelHead = useRef(null);
   const recommendation = useRef(null);
 
-  const router = useRouter();
-
   const [text] = useTypewriter({
     words: [
       "MERN Stack Web Developer",
-      "Over 1 year of Experience",
-      "Experienced 6+ Startups",
-      "React Native App Developer",
-      "Stand Alone Hackathon Winner",
+      "Approaching 2 Years of Experience",
+      "Experienced 7+ Startups",
+      "Passionate Data Science Learner",
+      "SIH 2023 Hackathon Winner",
     ],
     loop: 0,
   });
@@ -170,35 +145,39 @@ const Home = () => {
 
   return (
     <div id="mainDiv">
-      <div className="md:mt-20 mobile:mt-14 flex h-fit md:flex-row mobile:flex-col justify-center w-[100%] items-center md:px-[5vw] mobile:px-[1.5vw]">
-        <div className="md:w-[32%] mobile:w-[85%] h-[100%] overflow-hidden relative">
-          <Image src={img} id="img" className="w-full h-full" alt="" />
+      <div className="flex h-[100vh] md:flex-row flex-col justify-center w-full items-center md:px-[5vw] px-[1.5vw]">
+        <div className="md:w-[33%] w-[85%] overflow-hidden relative">
+          <Image
+            src={"/Data/IMG_20230511_225820_Bokeh.png"}
+            id="img"
+            className="w-full h-full"
+            width={1000}
+            height={1000}
+            alt=""
+          />
         </div>
-        <div className="md:ml-10 mobile:ml-0 md:mt-0 mt-[3vw] text-grey md:w-[65%] mobile:w-[100%] md:h-[65vh] max-[400px]:h-[65vh] h-[45vh] overflow-hidden flex items-center">
+        <div className="md:ml-16 ml-0 md:mt-0 text-grey md:w-[65%] w-[100%] md:h-[65vh] max-[400px]:h-[65vh] h-[45vh] overflow-hidden flex flex-col justify-center items-center">
           <div
-            className="absolute mobile:flex mobile:flex-col mobile:justify-center mobile:items-center md:block"
+            className="absolute flex flex-col justify-center items-center md:block"
             id="content"
           >
-            <p className="text-grey md:text-4xl mobile:text-3xl font-semibold">
+            <p className="text-grey md:text-4xl text-3xl font-semibold">
               Hi, I am
             </p>
-            <p className="text-oceanGreen mobile:text-4xl md:text-6xl md:py-4 mobile:py-1 font-bold">
+            <p className="text-oceanGreen text-4xl md:text-6xl md:py-4 py-1 font-bold">
               Anekant Jain
             </p>
-            <p className="md:text-5xl mobile:text-2xl font-semibold md:h-[9vh] mobile:h-[5vh]">
+            <p className="md:text-5xl text-2xl font-semibold md:h-[9vh] h-[5vh]">
               {text}
             </p>
-            <p className="md:mt-2 mobile:mt-1 md:mx-0 mobile:mx-4 md:text-start mobile:text-center font-[600] ml-1">
-              Adept MERN Stack developer with a demonstrated history of success.
-              Skilled in web and
-              <br /> mobile application development, hackathons, and startups.
-              Currently working
-              <br /> as a Intern at Consciousleap & Freelancer at Trubuddies...
+            <p className="md:mt-2 mt-1 md:mx-0 mx-4 md:text-start text-center font-[600] ml-1">
+              Skilled MERN Stack developer, SDE 1 at Consciousleap, Freelancer
+              at Trubuddies, delving into machine learning.
             </p>
             <div className="flex items-center ml-1">
               <Link
                 href={
-                  "https://drive.google.com/file/d/1QpvgNmPyfebiFRq-EbSZL77UrKyL1xBz/view?usp=sharings"
+                  "https://drive.google.com/file/d/1jUYOnaWPzWN4GSgWO25X6jtchBLcS5Jp/view?usp=sharing"
                 }
                 target="blank"
                 style={{ transition: "all 0.25s ease-in-out" }}
@@ -209,7 +188,7 @@ const Home = () => {
               <button
                 onClick={(e) => {
                   e.preventDefault();
-                  router.push("https://www.buymeacoffee.com/anekantjain");
+                  window.open("https://www.buymeacoffee.com/anekantjain");
                 }}
                 className="oceanHover text-lightWhite bg-oceanGreen px-4 py-1 my-3 rounded-md cursor-pointer"
               >
@@ -222,11 +201,11 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div className="md:px-[8vw] mobile:px-[4.5vw] overflow-hidden">
-        <div className="flex justify-between items-end md:px-4 mobile:px-2 w-[100%]">
+      <div className="md:px-[8vw] px-[4.5vw] overflow-hidden">
+        <div className="flex justify-between items-end md:px-4 px-2 w-[100%]">
           <h1
             id="skillHead"
-            className="md:text-5xl mobile:text-3xl text-oceanGreen font-bold md:mb-4 mobile:mb-2"
+            className="md:text-5xl text-3xl text-oceanGreen font-bold md:mb-4 mb-2"
           >
             Skills
           </h1>
@@ -235,53 +214,67 @@ const Home = () => {
             src={
               "https://res.cloudinary.com/dpbsogbtr/image/upload/v1699981184/un4nytyu880zi4jexeun.png"
             }
-            width={100}
-            height={100}
+            width={1000}
+            height={1000}
             alt="Skills"
-            className="md:w-[20%] mobile:w-[40%] md:-mb-12 mobile:-mb-6"
+            className="md:w-[20%] w-[40%] md:-mb-12 -mb-6"
           />
         </div>
         <div className="flex flex-col justify-center">
           <div
             id="socialIcons"
-            // className="grid mb-10 md:grid-cols-8 justify-items-center border mobile:grid-cols-4 rounded-xl bg-white overflow-hidden px-[2vw] mobile:py-[4vw] md:py-[1.5vw]"
+            // className="grid mb-10 md:grid-cols-8 justify-items-center border grid-cols-4 rounded-xl bg-white overflow-hidden px-[2vw] py-[4vw] md:py-[1.5vw]"
             className="mb-10 flex items-center justify-center flex-wrap rounded-xl bg-white px-[2vw] border py-[2vw] md:py-[4vw]"
           >
-            <Icon source={html} title={"Html"} />
-            <Icon source={css} title={"CSS"} />
-            <Icon source={bootstrap} title={"Bootstrap"} />
-            <Icon source={tailwind} title={"Tailwind css"} />
-            <Icon source={javascript} title={"JavaScript"} />
-            <Icon source={typescript} title={"TypeScript"} />
-            <Icon source={react} title={"React.js"} />
-            <Icon source={next} title={"Next.js"} />
-            <Icon source={npm} title={"NPM"} />
-            <Icon source={nodejs} title={"Node.js"} />
-            <Icon source={expressjs} title={"Express.js"} />
-            <Icon source={mongodb} title={"MongoDB"} />
-            <Icon source={mongoose} title={"Mongoose"} />
-            <Icon source={git} title={"Git"} />
-            <Icon source={github} title={"Github"} />
-            <Icon source={aws} title={"Amazon Web Services"} />
-            <Icon source={c} title={"C"} />
-            <Icon source={cplus} title={"C++"} />
-            <Icon source={dsa} title={"DSA"} />
-            <Icon source={python} title={"Python"} />
-            <Icon source={canva} title={"Canva"} />
+            <Icon source={"/Data/icons/html.png"} title={"Html"} />
+            <Icon source={"/Data/icons/css-3.png"} title={"CSS"} />
+            <Icon source={"/Data/icons/bootstrap.png"} title={"Bootstrap"} />
+            <Icon source={"/Data/icons/tailwind.png"} title={"Tailwind css"} />
+            <Icon source={"/Data/icons/js.png"} title={"JavaScript"} />
+            <Icon source={"/Data/icons/typescript.png"} title={"TypeScript"} />
+            <Icon source={"/Data/icons/python.png"} title={"Python"} />
+            <Icon source={"/Data/icons/numpy.svg"} title={"Numpy"} />
+            <Icon source={"/Data/icons/pandas.svg"} title={"Pandas"} />
+            <Icon
+              source={"/Data/icons/matplotlib-seeklogo.svg"}
+              title={"Matplotlib"}
+            />
+            <Icon source={"/Data/icons/react.png"} title={"React.js"} />
+            <Icon source={"/Data/icons/next.png"} title={"Next.js"} />
+            <Icon source={"/Data/icons/npm.png"} title={"NPM"} />
+            <Icon
+              source={"/Data/icons/node-js-736399_1280.png"}
+              title={"Node.js"}
+            />
+            <Icon source={"/Data/icons/Expressjs.png"} title={"Express.js"} />
+            <Icon source={"/Data/icons/mongodb.png"} title={"MongoDB"} />
+            <Icon source={"/Data/icons/sql.png"} title={"Mysql"} />
+            <Icon source={"/Data/icons/mongoose.png"} title={"Mongoose"} />
+            <Icon source={"/Data/icons/git.png"} title={"Git"} />
+            <Icon source={"/Data/icons/github.png"} title={"Github"} />
+            <Icon
+              source={"/Data/icons/aws.png"}
+              title={"Amazon Web Services"}
+            />
+            <Icon source={"/Data/icons/letter-c.png"} title={"C"} />
+            <Icon source={"/Data/icons/c++.png"} title={"C++"} />
+            <Icon source={"/Data/icons/dsa.png"} title={"DSA"} />
           </div>
         </div>
       </div>
-      <div className="md:px-[8vw] mobile:px-[4.5vw] overflow-hidden mt-4">
-        <div className="flex md:flex-row mobile:flex-col-reverse justify-between md:px-4 mobile:px-2 md:items-end mobile:items-baseline w-[100%]">
+      <div className="md:px-[8vw] px-[4.5vw] overflow-hidden mt-4">
+        <div className="flex md:flex-row flex-col-reverse justify-between md:px-4 px-2 md:items-end items-baseline w-[100%]">
           <Image
             ref={referrelsImage}
-            src={referrels}
+            src={"/Data/referrels.png"}
+            width={1000}
+            height={1000}
             alt="Skills"
-            className="md:w-[25%] z-10 mobile:w-[55%] md:-mb-14 mobile:-mb-10 mobile:self-start"
+            className="md:w-[25%] z-10 w-[55%] md:-mb-14 -mb-10 self-start"
           />
           <h1
             ref={referrelHead}
-            className="md:text-5xl mobile:text-3xl text-oceanGreen font-bold md:mb-4 mobile:mb-2 self-center"
+            className="md:text-5xl text-3xl text-oceanGreen font-bold md:mb-4 mb-2 self-center"
           >
             Endorsements
           </h1>
@@ -289,7 +282,7 @@ const Home = () => {
         <div className="flex flex-col justify-center">
           <div
             ref={recommendation}
-            className="mb-10 border rounded-xl bg-white mobile:pb-[3vw] md:pb-[1.5vw] mobile:pt-12 md:pt-16"
+            className="mb-10 border rounded-xl bg-white pb-[3vw] md:pb-[1.5vw] pt-12 md:pt-16"
           >
             <Carousel
               showArrows={true}
@@ -314,13 +307,13 @@ const Home = () => {
 const Block = ({ data }) => {
   const router = useRouter();
   return (
-    <div className="mobile:px-[7vw] md:px-[3vw] mobile:pb-9 md:pb-6">
+    <div className="px-[7vw] md:px-[3vw] pb-9 md:pb-6">
       <p className="text-center text-darkGrey text-lg">
         {data.message.length > 300
           ? data.message.slice(0, 300) + "..."
           : data.message}
       </p>
-      <div className="flex justify-end mr-[1vw] mobile:mt-2 md:mt-1.5">
+      <div className="flex justify-end mr-[1vw] mt-2 md:mt-1.5">
         <div>
           <div
             className="flex items-center"
@@ -366,9 +359,15 @@ const Icon = ({ source, title }) => {
     <div
       title={title}
       id="div"
-      className="relative m-auto w-[21vw] mobile:h-[12vw] md:w-[9vw] md:h-[5vw] object-cover object-center flex justify-center items-center md:my-6 mobile:my-3 transition-all hover:pb-12"
+      className="relative m-auto w-[21vw] h-[12vw] md:w-[9vw] md:h-[5vw] object-cover object-center flex justify-center items-center md:my-6 my-3 transition-all hover:pb-12"
     >
-      <Image className="absolute w-6/12" src={source} alt={"title"} />
+      <Image
+        width={1000}
+        height={1000}
+        className="absolute w-6/12"
+        src={source}
+        alt={"title"}
+      />
     </div>
   );
 };
