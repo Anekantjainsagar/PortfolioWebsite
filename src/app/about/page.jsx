@@ -1,9 +1,9 @@
 "use client";
 import React, { useEffect } from "react";
 import { Power2, gsap } from "gsap";
-import SocialMedia from "../Components/SocialMedia";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import SocialMedia from "../Components/SocialMedia";
 
 const About = () => {
   const router = useRouter();

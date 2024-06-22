@@ -1,8 +1,8 @@
 "use client";
 import React from "react";
-import SocialMedia from "./SocialMedia";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+import SocialMedia from "./SocialMedia";
 
 const Footer = () => {
   const router = useRouter();

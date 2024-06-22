@@ -7,14 +7,13 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { useTypewriter } from "react-simple-typewriter";
 import { gsap, Power2 } from "gsap";
 
-import SocialMedia from "@/app/Components/SocialMedia";
-
 // Images
 import { AiOutlineLinkedin } from "react-icons/ai";
 import { ScrollTrigger } from "gsap/all";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import SocialMedia from "./Components/SocialMedia";
 
 const Home = () => {
   const image = useRef(null);
