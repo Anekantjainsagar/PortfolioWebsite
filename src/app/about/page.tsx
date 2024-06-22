@@ -63,7 +63,7 @@ const About = () => {
               <b>
                 Next.js, React.js, Node.js, Express.js, MongoDb (MERN Stack) &
                 Machine Learning technologies such as Numpy, Pandas, Matplotlib
-                and it's various algorithms.
+                and it&apos;s various algorithms.
               </b>
             </p>
             <p className="mt-1">
