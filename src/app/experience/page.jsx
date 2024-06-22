@@ -10,105 +10,65 @@ gsap.registerPlugin(ScrollTrigger);
 
 const ExperienceSection = () => {
   let t1 = gsap.timeline();
-  useEffect(() => {
+  const animateBox = (boxId, xStart, xEnd, startTrigger, endTrigger) => {
     t1.fromTo(
-      "#leftBox1",
+      `#${boxId}`,
       {
         opacity: 0,
-        x: -200,
+        x: xStart,
       },
       {
-        x: 0,
+        x: xEnd,
         opacity: 1,
         zIndex: 0,
         duration: 3,
         ease: "none",
         scrollTrigger: {
           scrub: 1,
-          start: "top 30%",
-          end: "top 25%",
-          trigger: "#leftBox1",
+          start: startTrigger,
+          end: endTrigger,
+          trigger: `#${boxId}`,
+          // markers: {
+          //   startColor: "green",
+          //   endColor: "red",
+          //   fontSize: "18px",
+          //   fontWeight: "bold",
+          //   indent: 20,
+          // },
         },
       }
-    )
-      .fromTo(
-        "#rightBox1",
-        {
-          opacity: 0,
-          x: 200,
-        },
-        {
-          x: 0,
-          opacity: 1,
-          zIndex: 0,
-          duration: 3,
-          ease: "none",
-          scrollTrigger: {
-            scrub: 1,
-            start: "top 30%",
-            end: "top 25%",
-            trigger: "#rightBox1",
-          },
-        }
-      )
-      .fromTo(
-        "#leftBox2",
-        {
-          opacity: 0,
-          x: -200,
-        },
-        {
-          x: 0,
-          opacity: 1,
-          zIndex: 0,
-          duration: 3,
-          ease: "none",
-          scrollTrigger: {
-            scrub: 1,
-            start: "top 50%",
-            end: "top 30%",
-            trigger: "#leftBox2",
-          },
-        }
-      )
-      .fromTo(
-        "#rightBox2",
-        {
-          opacity: 0,
-          x: 200,
-        },
-        {
-          x: 0,
-          opacity: 1,
-          zIndex: 0,
-          duration: 3,
-          ease: "none",
-          scrollTrigger: {
-            scrub: 1,
-            start: "top 90%",
-            end: "top 50%",
-            trigger: "#rightBox2",
-          },
-        }
-      )
-      .fromTo(
-        "#height",
-        {
-          height: "0px",
-        },
-        {
-          height: "1200px",
-          zIndex: 0,
-          duration: 3,
-          ease: "none",
-          scrollTrigger: {
-            scrub: true,
-            start: "top 43%",
-            end: "top -100%",
-            trigger: "#height",
-          },
-        }
+    );
+  };
+
+  useEffect(() => {
+    for (let i = 0; i < experience.length; i++) {
+      animateBox(
+        `box${i + 1}`,
+        i % 2 == 0 ? 200 : -200,
+        0,
+        "top 50%",
+        "top 70%"
       );
+    }
+
+    t1.fromTo(
+      "#height",
+      {
+        height: "0px",
+      },
+      {
+        height: "1700px",
+        zIndex: 0,
+        duration: 3,
+        ease: "none",
+        scrollTrigger: {
+          scrub: true,
+          start: "top 43%",
+          end: "top -100%",
+          trigger: "#height",
+        },
+      }
+    );
   }, [t1]);
 
   useEffect(() => {
@@ -166,11 +126,11 @@ const ExperienceSection = () => {
           <div className="relative">
             <div
               id="height"
-              className="height absolute hidden w-1 h-full transform -translate-x-1/2 bg-grey lg:block left-1/2"
+              className="height absolute hidden mt-2 w-1 h-full transform -translate-x-1/2 bg-grey lg:block left-1/2"
             ></div>
             <div className="space-y-2 lg:space-y-4">
               {experience.map((e, i) => {
-                return <Card e={e} key={i} />;
+                return <Card e={e} key={i} i={i + 1} />;
               })}
             </div>
           </div>
@@ -180,28 +140,34 @@ const ExperienceSection = () => {
   );
 };
 
-const Card = ({ e }) => {
+const Card = ({ e, i }) => {
   return (
-    <div id={e?.class}>
-      <div className="flex flex-col items-center">
+    <div id={`box${i}`}>
+      <div
+        onClick={(element) => {
+          element.preventDefault();
+          if (e?.url) {
+            window.open(e?.url);
+          }
+        }}
+        className="flex flex-col cursor-pointer items-center"
+      >
         <div
           className={`flex items-center ${
-            e?.class.toLowerCase().includes("right")
-              ? "justify-center md:justify-end"
-              : "justify-center md:justify-start"
+            i % 2 == 0
+              ? "justify-center md:justify-start"
+              : "justify-center md:justify-end"
           } w-full mx-auto`}
         >
           <div
             className={`w-full lg:w-1/2 ${
-              e?.class.toLowerCase().includes("right") ? "md:pl-8" : "md:pr-8"
+              i % 2 == 0 ? "md:pr-10" : "md:pl-10"
             }`}
           >
-            <div className="relative flex-1 mb-10 bg-white rounded shadow lg:mb-8 dark:bg-white greyHover cursor-pointer">
+            <div className="relative flex-1 mb-10 bg-white rounded-lg shadow lg:mb-8 dark:bg-white greyHover cursor-pointer">
               <div
                 className={`static md:absolute inline-block w-4 overflow-hidden -translate-y-1/2 top-3 ${
-                  !e?.class.toLowerCase().includes("right")
-                    ? "-right-4"
-                    : "-left-4 rotate-[180deg] mt-4"
+                  i % 2 == 0 ? "-right-4" : "-left-4 rotate-[180deg] mt-4"
                 }`}
               >
                 <div
@@ -212,7 +178,7 @@ const Card = ({ e }) => {
                 {/* content */}
                 <div
                   className={`flex flex-col flex-wrap px-4 ${
-                    !e?.class.toLowerCase().includes("right")
+                    i % 2 == 0
                       ? "text-center md:text-end"
                       : "text-center md:text-start"
                   }`}

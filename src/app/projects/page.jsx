@@ -1,15 +1,9 @@
 "use client";
 import React, { useEffect, useRef } from "react";
-import {
-  AiFillGithub,
-  AiFillLinkedin,
-  AiOutlineLink,
-  AiOutlineLinkedin,
-} from "react-icons/ai";
+import { AiFillGithub, AiFillLinkedin, AiOutlineLink } from "react-icons/ai";
 import projects from "@/app/json/projects";
 import { gsap } from "gsap";
 import { Power2 } from "gsap/all";
-import { MutableRefObject, LegacyRef } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import Link from "next/link";

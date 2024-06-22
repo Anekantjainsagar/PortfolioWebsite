@@ -176,7 +176,7 @@ const Home = () => {
             <div className="flex items-center ml-1">
               <Link
                 href={
-                  "https://drive.google.com/file/d/1jUYOnaWPzWN4GSgWO25X6jtchBLcS5Jp/view?usp=sharing"
+                  "https://drive.google.com/file/d/1vJW6ZVb9eN2ScTW8e_ZS9awnmJ-H5rUS/view?usp=sharing"
                 }
                 target="blank"
                 style={{ transition: "all 0.25s ease-in-out" }}
