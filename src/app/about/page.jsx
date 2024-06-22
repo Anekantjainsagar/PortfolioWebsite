@@ -96,7 +96,7 @@ const About = () => {
   );
 };
 
-const Title = ({ text }: { text: String }) => {
+const Title = ({ text }) => {
   return (
     <div className="border px-2.5 border-gray-400 rounded-lg w-fit text-sm mr-2">
       {text}

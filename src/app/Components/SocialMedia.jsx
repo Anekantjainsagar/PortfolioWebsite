@@ -10,7 +10,7 @@ import {
   AiFillTwitterSquare,
 } from "react-icons/ai";
 
-const SocialMedia = ({ color }: { color: String }) => {
+const SocialMedia = ({ color }) => {
   const router = useRouter();
 
   return (
