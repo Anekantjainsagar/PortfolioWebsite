@@ -131,7 +131,7 @@ const ExperienceSection = () => {
         />
       </div>
       <div className="max-w-xl mx-auto md:mt-0 mt-20"></div>
-      <div className="flex flex-col justify-center mt-5">
+      <div className="flex flex-col justify-center mt-5 overflow-x-hidden">
         <div className="w-full px-4 mx-auto lg:max-w-5xl ">
           <div className="relative">
             <div
