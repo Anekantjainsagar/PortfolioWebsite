@@ -130,15 +130,17 @@ const ExperienceSection = () => {
           className="mix-blend-multiply md:w-[20%] w-[50%]"
         />
       </div>
-      <div className="max-w-xl mx-auto md:mt-0 mt-20"></div>
-      <div className="flex flex-col justify-center mt-5 overflow-x-hidden">
+      {typeof window != "undefined" && window.innerWidth > 550 && (
+        <div className="max-w-xl mx-auto md:mt-0 mt-20"></div>
+      )}
+      <div className="flex flex-col justify-center md:mt-5 overflow-x-hidden">
         <div className="w-full px-4 mx-auto lg:max-w-5xl ">
           <div className="relative">
             <div
               id="height"
               className="height absolute hidden mt-2 w-1 h-full transform -translate-x-1/2 bg-grey lg:block left-1/2"
             ></div>
-            <div className="space-y-2 lg:space-y-4">
+            <div className="space-y-2 lg:space-y-4 md:pt-0 pt-20">
               {experience.map((e, i) => {
                 return <Card e={e} key={i} i={i + 1} />;
               })}
