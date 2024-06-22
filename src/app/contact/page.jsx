@@ -5,6 +5,7 @@ import { AiOutlineReload, AiOutlineSend } from "react-icons/ai";
 import ScrollToBottom from "react-scroll-to-bottom";
 import { ThreeDots } from "react-loader-spinner";
 import Image from "next/image";
+import axios from "axios";
 
 const Contact = () => {
   let message = [
@@ -95,6 +96,21 @@ const Contact = () => {
           ...answers,
           { question: message[questionIndex]?.question, answer: response },
         ]);
+        if (message.length - 2 == questionIndex) {
+          axios
+            .post("/api/query", {
+              data: [
+                ...answers,
+                {
+                  question: message[questionIndex]?.question,
+                  answer: response,
+                },
+              ],
+            })
+            .then((res) => {
+              console.log(res.data);
+            });
+        }
         setResponse("");
         setQuestionIndex(questionIndex + 1);
       }
