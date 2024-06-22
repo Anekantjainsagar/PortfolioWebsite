@@ -42,13 +42,23 @@ const ExperienceSection = () => {
 
   useEffect(() => {
     for (let i = 0; i < experience.length; i++) {
-      animateBox(
-        `box${i + 1}`,
-        i % 2 == 0 ? 200 : -200,
-        0,
-        "top 50%",
-        "top 70%"
-      );
+      if (typeof window != "undefined" && window.innerWidth < 600) {
+        animateBox(
+          `box${i + 1}`,
+          i % 2 == 0 ? 200 : -200,
+          0,
+          "top 20%",
+          "top 40%"
+        );
+      } else {
+        animateBox(
+          `box${i + 1}`,
+          i % 2 == 0 ? 200 : -200,
+          0,
+          "top 50%",
+          "top 70%"
+        );
+      }
     }
 
     t1.fromTo(

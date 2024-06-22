@@ -101,7 +101,7 @@ const Project = () => {
 const Block = ({ data }) => {
   const router = useRouter();
   return (
-    <div className="border md:mb-4 mb-10 rounded-md border-oceanGreen bg-white text-grey cursor-pointer oceanHover mb-4 w-[100%] md:w-[95%] mx-auto">
+    <div className="border md:mb-4 mb-10 rounded-md border-oceanGreen bg-white text-grey cursor-pointer oceanHover md:mb-4 w-[100%] md:w-[95%] mx-auto">
       <Image
         src={data?.img}
         alt={data?.img}

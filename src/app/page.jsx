@@ -144,7 +144,7 @@ const Home = () => {
 
   return (
     <div id="mainDiv">
-      <div className="flex h-[100vh] md:flex-row flex-col justify-center w-full items-center md:px-[5vw] px-[1.5vw]">
+      <div className="flex md:mt-0 mt-16 h-fit md:h-[100vh] md:flex-row flex-col justify-center w-full items-center md:px-[5vw] px-[1.5vw]">
         <div className="md:w-[33%] w-[85%] overflow-hidden relative">
           <Image
             src={"/Data/IMG_20230511_225820_Bokeh.png"}
