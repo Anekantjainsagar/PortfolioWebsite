@@ -47,8 +47,8 @@ const ExperienceSection = () => {
           `box${i + 1}`,
           i % 2 == 0 ? 200 : -200,
           0,
-          "top 20%",
-          "top 40%"
+          "top 85%",
+          "top 86%"
         );
       } else {
         animateBox(
